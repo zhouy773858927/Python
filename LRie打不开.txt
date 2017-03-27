@@ -1,0 +1,12 @@
+Win7 64位 + LoadRunner 11录制时弹不出IE的解决办法
+
+1. 卸载IE9
+装了Win7 64位后，默认的IE是IE9，先把IE9卸载。打开控制面板->程序->查看已经安装的更新，找到IE9卸载，重启。卸载后，IE自动变为IE8。其中存在C:\Program Files\Internet Explorer下面的是64位的IE，存在C:\Program Files(x86)\Internet Explorer下面的是32位的IE。
+
+2. 配置IE8
+打开Internet选项->高级，把“启用第三方浏览器扩展”去掉。重启IE生效。
+在LR中开始录制页面，Program to record里选Microsoft Internet Explorer。这里指向的IE实际上是32位的IE。开始录制，发现还弹不出页面。后来等了好几分钟弹出来了，也开始有event了。才发现原来不是弹不出来，是弹出的太慢了。在网上找到了有效的解决办法。打开Internet选项->连接->局域网设置，把“自动检测设置”去掉。搞定！
+
+另外，HP给的安装文档中说64位不支持vgen，是不对的。在以上环境中录制没有问题。
+本人还试过32位XP+LR11+IE7，也运行正常。
+如果实在IE弹不出来，就用Firefox吧。这个成功概率很高。
